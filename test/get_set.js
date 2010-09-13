@@ -15,6 +15,7 @@ exports['get/set'] = function (assert) {
         });
         
         db.set('substack', 8, function (sErr) {
+            assert.ok(!sErr);
             db.get('substack', function (gErr, value) {
                 assert.ok(!gErr);
                 assert.equal(value, 8);

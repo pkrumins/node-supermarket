@@ -68,7 +68,7 @@ function Store(filename, cb) {
                 }
             }
         );
-    }
+    };
 
     self.get = function (key, cb) {
         if (cb === undefined) cb = function () {}
@@ -80,9 +80,8 @@ function Store(filename, cb) {
                 if (error) {
                     self.emit('error', error);
                     cb(error);
-                    return;
                 }
-                if (value === undefined) {
+                else if (value === undefined) {
                     if (hadRow) return;
                     cb();
                 }
@@ -92,6 +91,23 @@ function Store(filename, cb) {
                 }
             }
         );
-    }
+    };
+
+    self.remove = function (key, cb) {
+        if (cb === undefined) cb = function () {};
+        db.query(
+            "DELETE FROM store WHERE key = ?",
+            [key],
+            function (error, r) {
+                if (error) {
+                    self.emit('error', error);
+                    cb(error);
+                }
+                else {
+                    cb(undefined, r.rowsAffected == 1);
+                }
+            }
+        );
+    };
 };
 
