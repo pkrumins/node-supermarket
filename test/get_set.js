@@ -1,4 +1,4 @@
-var Store = require('store');
+var Store = require('supermarket');
 
 exports['get/set'] = function (assert) {
     var file = '/tmp/' + Math.floor(Math.random() * 1e8) + '.db';
