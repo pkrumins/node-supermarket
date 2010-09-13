@@ -8,9 +8,10 @@ exports['set/remove'] = function (assert) {
         
         db.set('o_O', 50, function (sErr) {
             assert.ok(!sErr);
-            db.remove('o_O', function (rErr, r) {
-                assert.ok(!err);
-                assert.ok(r);
+            db.remove('o_O', function (rErr) {
+                assert.ok(!rErr);
+                // no way to check if the key was removed for now
+                // assert.ok(r);
                 db.get('o_O', function (gErr, value) {
                     assert.ok(!gErr);
                     assert.equal(arguments.length, 0);

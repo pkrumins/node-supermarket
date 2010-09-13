@@ -98,13 +98,15 @@ function Store(filename, cb) {
         db.query(
             "DELETE FROM store WHERE key = ?",
             [key],
-            function (error, r) {
-                if (error) {
-                    self.emit('error', error);
-                    cb(error);
+            function (err) {
+                // hmm there is no err I guess here?
+                if (err) {
+                    cb(err);
                 }
                 else {
-                    cb(undefined, r.rowsAffected == 1);
+                    // silly node-sql doesn't set rowsAffected
+                    // cb(undefined, r.rowsAffected == 1);
+                    cb(undefined);
                 }
             }
         );
