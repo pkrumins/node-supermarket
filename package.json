@@ -1,0 +1,38 @@
+{
+    "name": "kvstore",
+    "version": "1.0.0",
+    "main": "kvstore",
+    "description": "A key/value store based on sqlite for node.js",
+    "keywords": [
+        "sqlite",
+        "nosql",
+        "key value store",
+        "key value store",
+    ],
+    "maintainers": [
+        {
+            "name": "Peteris Krumins",
+            "email": "peteris.krumins@gmail.com",
+            "web": "http://www.catonmat.net",
+            "twitter": "pkrumins"
+        } 
+    ],
+    "licenses": [
+        {
+            "type": "MIT"
+        } 
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "http://github.com/pkrumins/node-kvstore.git"
+        } 
+    ],
+    "engines": {
+        "node": ">=0.1.93"
+    },
+    "dependencies" : {
+        "sqlite": ">=0.0.3"
+    }
+}
+
