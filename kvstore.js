@@ -18,7 +18,7 @@ function Store(filename, cb) {
     });
 
     function initStoreTable() {
-        var hadTable = false;
+        var hadRow = false;
         db.query(
             "SELECT * FROM SQLITE_MASTER WHERE type='table' AND name='store'",
             function (error, row) {
@@ -28,7 +28,7 @@ function Store(filename, cb) {
                     return;
                 }
                 if (row === undefined) {
-                    if (hadTable) {
+                    if (hadRow) {
                         self.emit('ready');
                         cb(undefined, self);
                     }
@@ -48,7 +48,7 @@ function Store(filename, cb) {
                         );
                     }
                 }
-                hadTable = true;
+                hadRow = true;
             }
         );
     }
@@ -72,6 +72,7 @@ function Store(filename, cb) {
 
     self.get = function (key, cb) {
         if (cb === undefined) cb = function () {}
+        var hadRow = false;
         db.query(
             "SELECT value FROM store WHERE key = ?",
             [key],
@@ -79,9 +80,15 @@ function Store(filename, cb) {
                 if (error) {
                     self.emit('error', error);
                     cb(error);
+                    return;
+                }
+                if (value === undefined) {
+                    if (hadRow) return;
+                    cb();
                 }
                 else {
                     cb(undefined, value.value);
+                    hadRow = true;
                 }
             }
         );
