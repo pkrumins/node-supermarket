@@ -1,4 +1,4 @@
-var Store = require('kvstore');
+var Store = require('store');
 
 Store('users.db', function (error, db) {
     if (error) throw error;
@@ -13,6 +13,10 @@ Store('users.db', function (error, db) {
         db.get('substack', function (error, value) {
             console.log('substack ' + value);
         });
+    });
+
+    db.get('jesusabdullah', function (error, value) {
+        console.log('jesus ' + value);
     });
 });
 
