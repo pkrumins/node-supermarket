@@ -81,7 +81,7 @@ function Store(filename, cb) {
                     cb(error);
                 }
                 else {
-                    cb(undefined, value);
+                    cb(undefined, value.value);
                 }
             }
         );
