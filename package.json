@@ -2,6 +2,9 @@
     "name": "supermarket",
     "version": "1.0.0",
     "description": "A key/value store based on sqlite for node.js",
+    "modules" : {
+        "index" : "./lib/supermarket.js"
+    },
     "keywords": [
         "sqlite",
         "nosql",
@@ -23,7 +26,7 @@
     "repository": {
             "type": "git",
             "url": "http://github.com/pkrumins/node-kvstore.git"
-    } 
+    }, 
     "engines": {
         "node": ">=0.1.93"
     },
