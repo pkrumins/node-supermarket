@@ -25,6 +25,7 @@ function Store(filename, cb) {
                 if (error) {
                     self.emit('error', error);
                     cb(error);
+                    return;
                 }
                 if (row === undefined) {
                     if (hadTable) {
@@ -55,7 +56,7 @@ function Store(filename, cb) {
     self.set = function (key, value, cb) {
         if (cb === undefined) cb = function () {}
         db.query(
-            "INSERT INTO store (key, value) VALUES (?, ?)",
+            "INSERT INTO store (key, value) VALUES (?, ?) ON CONFLICT REPLACE",
             [key, value],
             function (error) {
                 if (error) {
