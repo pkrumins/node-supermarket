@@ -1,13 +1,11 @@
 {
-    "name": "kvstore",
+    "name": "supermarket",
     "version": "1.0.0",
-    "main": "kvstore",
     "description": "A key/value store based on sqlite for node.js",
     "keywords": [
         "sqlite",
         "nosql",
-        "key value store",
-        "key value store",
+        "key value store"
     ],
     "maintainers": [
         {
@@ -22,17 +20,15 @@
             "type": "MIT"
         } 
     ],
-    "repositories": [
-        {
+    "repository": {
             "type": "git",
             "url": "http://github.com/pkrumins/node-kvstore.git"
-        } 
-    ],
+    } 
     "engines": {
         "node": ">=0.1.93"
     },
     "dependencies" : {
-        "sqlite": ">=0.0.3"
+        "pksqlite": ">=0.0.3"
     }
 }
 
