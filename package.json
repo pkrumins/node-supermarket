@@ -1,6 +1,6 @@
 {
     "name": "supermarket",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A key/value store based on sqlite for node.js",
     "modules" : {
         "index" : "./lib/supermarket.js"
@@ -18,11 +18,9 @@
             "twitter": "pkrumins"
         } 
     ],
-    "licenses": [
-        {
+    "license": {
             "type": "MIT"
-        } 
-    ],
+    }, 
     "repository": {
             "type": "git",
             "url": "http://github.com/pkrumins/node-kvstore.git"

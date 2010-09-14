@@ -18,7 +18,7 @@ continuation that gets called when the database has been opened,
 
 It provides .set and .get methods that are also continuations,
 
-    Store('users.db', function (db) {
+    Store('users.db', function (err, db) {
         db.set('pkrumins', 'cool dude', function (error) {
             // value 'pkrumins' is now set to 'cool dude'
             db.get('pkrumins', function (error, value) {
@@ -33,7 +33,7 @@ After it's done filtering, it calls done function.
 
 Here is an example:
 
-    Store('users.db', function (db) {
+    Store('users.db', function (err, db) {
         var users = [];
         db.filter(
             function (user, userInfo) { //1//
@@ -60,6 +60,22 @@ Now if the age is less than 20, filter calls callback function //2//, which adds
 user who's younger than 20 to users array.
 Once filter has gone through all the records it calls done function //3//, which then
 prints out all usernames of youngters.
+
+Store also has .forEach method that iterates over all of its values,
+
+    Store('users.db', function (db) {
+        db.forEach(
+            function (err, key, val) {
+                if (err) throw err;
+                console.log("User " + key + " is " + JSON.parse(val).age + " old.");
+            },
+            function () {
+                console.log("Done with all users.");
+            }
+        );
+    }
+
+forEach takes a callback and done function. Very similar to .filter.
 
 Another method is .length that returns the number of elements in the store,
 
