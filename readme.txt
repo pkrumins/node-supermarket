@@ -27,6 +27,39 @@ It provides .set and .get methods that are also continuations,
         });
     });
 
+It also has .filter function that takes a predicate, callback and done function.
+The .filter function calls callback on each row for which predicate is true.
+After it's done filtering, it calls done function.
+
+Here is an example:
+
+    Store('users.db', function (db) {
+        var users = [];
+        db.filter(
+            function (user) { //1//
+                return JSON.parse(user).age < 20
+            },
+            function (err, user) { //2//
+                if (err) throw err;
+                users.push(user);
+            },
+            function () { //3//
+                console.log("Users younger than 20:");
+                users.forEach(function (user) {
+                    console.log(user);
+                });
+            }
+        );
+    });
+
+In this example it's assumed that users are stored in the database as JSON objects.
+The filter function here takes the predicate function //1//, parses each record and
+returns true if user's age is less than 20.
+Now if the age is less than 20, filter calls callback function //2//, which adds each
+user who's younger than 20 to users array.
+Once filter has gone through all the records it calls done function //3//, which then
+prints out all usernames of youngters.
+
 See tests/ directory for more info.
 
 This library doesn't end here, our (my and substack's) is to create an object
