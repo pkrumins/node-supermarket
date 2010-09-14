@@ -73,9 +73,19 @@ Store also has .forEach method that iterates over all of its values,
                 console.log("Done with all users.");
             }
         );
-    }
+    });
 
 forEach takes a callback and done function. Very similar to .filter.
+
+It also has .all method that returns all keys and all values,
+
+    Store('users.db', function (db) {
+        db.all(function (err, users, userInfos) {
+            // all users in users (keys)
+            // all user infos in userInfos (values)
+        });
+    });
+
 
 Another method is .length that returns the number of elements in the store,
 
