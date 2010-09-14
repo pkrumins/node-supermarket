@@ -61,8 +61,14 @@ user who's younger than 20 to users array.
 Once filter has gone through all the records it calls done function //3//, which then
 prints out all usernames of youngters.
 
-See tests/ directory for more info.
+Another method is .length that returns the number of elements in the store,
 
+    Store('users.db', function (db) {
+        db.length(function (len) {
+            console.log("There are " + len + " users in users.db database");
+        });
+   });
+    
 This library doesn't end here, our (my and substack's) is to create an object
 store, where you can just dump the whole js objects, and then restore them back,
 map, filter and fold on them, etc.
