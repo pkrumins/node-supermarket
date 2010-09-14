@@ -17,8 +17,8 @@ exports['filter'] = function (assert) {
         function test_evens() {
             var evens = [];
             db.filter(
-                function (i) { return i % 2 == 0 },
-                function (err, val) {
+                function (key, val) { return val % 2 == 0 },
+                function (err, key, val) {
                     assert.ok(!err);
                     evens.push(val);
                 },

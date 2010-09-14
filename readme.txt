@@ -36,23 +36,24 @@ Here is an example:
     Store('users.db', function (db) {
         var users = [];
         db.filter(
-            function (user) { //1//
-                return JSON.parse(user).age < 20
+            function (user, userInfo) { //1//
+                return JSON.parse(userInfo).age < 20
             },
-            function (err, user) { //2//
+            function (err, user, userInfo) { //2//
                 if (err) throw err;
-                users.push(user);
+                users.push(JSON.parse(userInfo));
             },
             function () { //3//
                 console.log("Users younger than 20:");
                 users.forEach(function (user) {
-                    console.log(user);
+                    console.log(user.name);
                 });
             }
         );
     });
 
 In this example it's assumed that users are stored in the database as JSON objects.
+The keys are usernames and values are JSON objects.
 The filter function here takes the predicate function //1//, parses each record and
 returns true if user's age is less than 20.
 Now if the age is less than 20, filter calls callback function //2//, which adds each
