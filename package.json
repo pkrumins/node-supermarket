@@ -1,6 +1,6 @@
 {
     "name": "supermarket",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A key/value store based on sqlite for node.js",
     "modules" : {
         "index" : "./lib/supermarket.js"
