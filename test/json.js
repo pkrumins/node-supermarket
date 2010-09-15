@@ -43,6 +43,15 @@ exports['json'] = function (assert) {
                                 function (err, key, val) {
                                     assert.equal(key, 'substack');
                                     assert.equal(val.age, 22);
+                                },
+                                function () {
+                                    db.all(function (aErr, keys, vals) {
+                                        assert.ok(!aErr);
+                                        assert.equal(keys.length, 2);
+                                        assert.equal(vals.length, 2);
+                                        assert.ok('pkrumins' == keys[0] || 'pkrumins' == keys[1]);
+                                        assert.ok('substack' == keys[0] || 'substack' == keys[1]);
+                                    });
                                 }
                             );
                         })
