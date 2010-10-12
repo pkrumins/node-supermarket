@@ -17,15 +17,15 @@ exports['foreach'] = function (assert) {
         function test_foreach() {
             var expectedSum = 99*(99+1)/2;
             var runningSum = 0;
-            db.forEach(
-                function (err, key, val) {
-                    assert.ok(!err);
-                    runningSum += val;
-                },
-                function () {
+            db
+                .forEach(function (row) {
+                    runningSum += row.value;
+                })
+                .on('error', assert.fail)
+                .on('end', function () {
                     assert.equal(expectedSum, runningSum);
-                }
-            );
+                })
+            ;
         }
     });
 }
