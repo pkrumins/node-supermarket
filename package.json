@@ -29,7 +29,8 @@
         "node": ">=0.1.93"
     },
     "dependencies" : {
-        "pksqlite": ">=0.0.3"
+        "pksqlite": ">=0.0.3",
+        "lazy": ">=1.0.1"
     }
 }
 
