@@ -38,6 +38,10 @@ Store,
     	}
     );
 
+------------.
+| Outdated: | The following docs are outdated as we just moved supermarket to node-lazy!
+'-----------'
+
 It also has .filter function that takes a predicate, callback and done function.
 The .filter function calls callback on each row for which predicate is true.
 After it's done filtering, it calls done function.
