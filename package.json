@@ -1,6 +1,6 @@
 {
     "name": "supermarket",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "A key/value store based on sqlite for node.js",
     "main": "./lib/supermarket.js",
     "modules" : {
@@ -9,22 +9,19 @@
     "keywords": [
         "sqlite",
         "nosql",
-        "key value store"
+        "key value store",
+        "database"
     ],
-    "maintainers": [
-        {
-            "name": "Peteris Krumins",
-            "email": "peteris.krumins@gmail.com",
-            "web": "http://www.catonmat.net",
-            "twitter": "pkrumins"
-        } 
-    ],
-    "license": {
-            "type": "MIT"
+    "author": {
+        "name": "Peteris Krumins",
+        "email": "peteris.krumins@gmail.com",
+        "web": "http://www.catonmat.net",
+        "twitter": "pkrumins"
     }, 
+    "license": "MIT",
     "repository": {
-            "type": "git",
-            "url": "http://github.com/pkrumins/node-supermarket.git"
+        "type": "git",
+        "url": "http://github.com/pkrumins/node-supermarket.git"
     }, 
     "engines": {
         "node": ">=0.1.93"
